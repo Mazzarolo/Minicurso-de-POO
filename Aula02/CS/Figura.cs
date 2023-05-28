@@ -8,13 +8,15 @@ namespace Figuras
         private double y;
         private double numLados;
         private double tamLado;
+        private string cor;
         
-        public Figura(double x, double y, double numLados, double tamLado)
+        public Figura(double x, double y, double numLados, double tamLado, string cor)
         {
             this.x = x;
             this.y = y;
             this.numLados = numLados;
             this.tamLado = tamLado;
+            this.cor = cor;
         }
 
         public double Perimetro()
@@ -24,7 +26,7 @@ namespace Figuras
 
         public void Desenhar()
         {
-            Console.WriteLine("Desenhando figura com {0} lados", numLados);
+            Console.WriteLine("Desenhando figura com {0} lados da cor {1}", numLados, cor);
         }
     }
 }

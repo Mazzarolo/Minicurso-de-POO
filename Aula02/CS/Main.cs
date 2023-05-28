@@ -7,7 +7,7 @@ namespace Program
     {
         public static void Main(string[] args)
         {
-            Figura f = new Figura(0, 0, 4, 10);
+            Figura f = new Figura(0, 0, 4, 10, "vermelha");
             f.Desenhar();
             Console.WriteLine("Perimetro: {0}", f.Perimetro());
         }
