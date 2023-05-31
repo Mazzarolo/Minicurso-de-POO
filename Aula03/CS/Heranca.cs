@@ -4,29 +4,36 @@ namespace Programa
 {
     // Classe mãe (classe base)
     class Animal {
-        public virtual void EmitirSom() {
-            Console.WriteLine("Animal emitindo som");
+        int numeroPatas;
+        string nome;
+        string especie;
+        string som;
+
+        public Animal(int numeroPatas, string nome, string especie, string som) {
+            this.numeroPatas = numeroPatas;
+            this.nome = nome;
+            this.especie = especie;
+            this.som = som;
+        }
+        public void EmitirSom() {
+            Console.WriteLine("{0} faz {1}", nome, som);
         }
     }
 
     // Classe filha (classe derivada)
     class Cachorro : Animal {
-        public override void EmitirSom() {
-            Console.WriteLine("O cachorro faz 'Au Au!'");
-        }
+        public Cachorro() : base(4, "Cachorro", "Canis lupus familiaris", "Au au!") { }
     }
 
     // Classe filha (classe derivada)
     class Gato : Animal {
-        public override void EmitirSom() {
-            Console.WriteLine("O gato faz 'Miau!'");
-        }
+        public Gato() : base(4, "Gato", "Felis catus", "Miau!") { }
     }
 
     class MainClass {
         static void Main(string[] args) {
             Animal[] animals = {
-                new Animal(),
+                new Animal(6, "Formiga", "Formiga", "Nada"),
                 new Cachorro(),
                 new Gato()};
 

@@ -1,44 +1,29 @@
-#include <stdio.h>
-#include <string.h>
-
+#include <iostream>
 using namespace std;
 
 // Classe mãe (classe base)
 class Animal 
 {
-private:
-    int numeroPatas;
-    char nome[10];
-    char especie[10];
-    char som[10];
-
 public:
-    Animal(int numeroPatas, char* nome, char* especie, char* som) 
-    {
-        this->numeroPatas = numeroPatas;
-        strcpy(this->nome, nome);
-        strcpy(this->especie, especie);
-        strcpy(this->som, som);
-    }
-
-    void emitirSom()
-    {
-        printf("O %s faz %s!\n", especie, som);
-    }
+    virtual void emitirSom() const = 0;  // Método virtual puro
 };
 
 // Classe filha (classe derivada)
 class Cachorro : public Animal 
 {
 public:
-    Cachorro() : Animal(4, "Cachorro", "Canino", "Auau") { }
+    void emitirSom() const override {
+        cout << "O cachorro faz Au Au!" << endl;
+    }
 };
 
 // Classe filha (classe derivada)
 class Gato : public Animal 
 {
 public:
-    Gato() : Animal(4, "Gato", "Felino", "Miau") { }
+    void emitirSom() const override {
+        cout << "O gato faz Miau!" << endl;
+    }
 };
 
 int main() {
